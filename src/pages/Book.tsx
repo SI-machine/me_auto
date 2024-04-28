@@ -1,8 +1,13 @@
+import { useOutletContext, useParams } from "react-router-dom";
 const Book = () => {
+  const { id } = useParams();
+  const obj = useOutletContext<{ hello: string }>();
   return (
-    <div>
-      <h1>Book</h1>
-    </div>
+    <>
+      <h1>
+        Book {id} {obj.hello}
+      </h1>
+    </>
   );
 };
 

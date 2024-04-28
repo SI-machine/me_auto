@@ -2,7 +2,9 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import BookList from "./pages/BookList";
+import NotFound from "./pages/NotFound";
+import { BookRoutes } from "./routes/BookRoutes";
+
 const App: React.FC = () => {
   return (
     <>
@@ -18,7 +20,8 @@ const App: React.FC = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<BookList />} />
+        <Route path="/books/*" element={<BookRoutes />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
