@@ -3,6 +3,7 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import VideoReviews from "./pages/VideoReviews";
 import { BookRoutes } from "./routes/BookRoutes";
 
 const App: React.FC = () => {
@@ -11,7 +12,10 @@ const App: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Главная</Link>
+          </li>
+          <li>
+            <Link to="/videos">Видео-Обзоры</Link>
           </li>
           <li>
             <Link to="/books">Books</Link>
@@ -20,6 +24,7 @@ const App: React.FC = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/videos" element={<VideoReviews />} />
         <Route path="/books/*" element={<BookRoutes />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
