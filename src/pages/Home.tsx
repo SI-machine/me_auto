@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 import CarCarousel from "../components/home/car-carousel/CarCarousel";
-import SearchBar from "../components/home/search-bar/SearchBar";
+import SearchBar from "../components/search-bar/SearchBar";
+import FeaturedCarsSection from "../components/home/featured-cars-section/FeaturedCarsSection";
 import { fetchCars } from "../store/features/testSlice";
 
 const Home = () => {
@@ -31,6 +32,8 @@ const Home = () => {
       <SearchBar onSearch={handleSearch} />
       <br />
       <CarCarousel />
+      <br />
+      <FeaturedCarsSection />
     </div>
   );
 };

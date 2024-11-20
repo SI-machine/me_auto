@@ -1,12 +1,9 @@
-import { useEffect } from "react";
-
 import {
-  Box,
   Card,
-  CardContent,
-  CardMedia,
-  Typography,
   CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
 } from "@mui/material";
 
 const content = [
@@ -48,12 +45,9 @@ const content = [
   },
 ];
 
-const VideoReviews = () => {
-  useEffect(() => {
-    document.title = "Видео-Обзоры";
-  }, []);
+const ClientsList = () => {
   return (
-    <Box>
+    <>
       {content.map((item) => (
         <Card key={item.id} sx={{ maxWidth: 345 }}>
           <CardActionArea>
@@ -75,8 +69,8 @@ const VideoReviews = () => {
           </CardActionArea>
         </Card>
       ))}
-    </Box>
+    </>
   );
 };
 
-export default VideoReviews;
+export default ClientsList;

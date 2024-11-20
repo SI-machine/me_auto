@@ -8,7 +8,7 @@ import image1 from "../../../assets/image1.jfif";
 import image2 from "../../../assets/image2.jfif";
 import image3 from "../../../assets/image3.jfif";
 
-const CarCarousel = () => {
+const CarCarousel: React.FC = () => {
   const dispatch = useAppDispatch();
   const currentSlide = useAppSelector((state) => state.carousel.currentSlide);
   return (
