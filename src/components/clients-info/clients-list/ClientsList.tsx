@@ -6,6 +6,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import styles from "./ClientsList.module.css";
+
 const content = [
   {
     id: 1,
@@ -47,7 +49,7 @@ const content = [
 
 const ClientsList = () => {
   return (
-    <>
+    <div className={styles.cardsContainer}>
       {content.map((item) => (
         <Card key={item.id} sx={{ maxWidth: 345 }}>
           <CardActionArea>
@@ -69,7 +71,7 @@ const ClientsList = () => {
           </CardActionArea>
         </Card>
       ))}
-    </>
+    </div>
   );
 };
 

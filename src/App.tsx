@@ -1,15 +1,16 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ClientsInfo from "./pages/ClientsInfo";
 import { BookRoutes } from "./routes/BookRoutes";
+import Navigation from "./components/navigation/Navigation";
 
 const App: React.FC = () => {
   return (
     <>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to="/">Главная</Link>
@@ -21,7 +22,8 @@ const App: React.FC = () => {
             <Link to="/books">Books</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<ClientsInfo />} />

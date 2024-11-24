@@ -4,7 +4,7 @@ import ClientsList from "../components/clients-info/clients-list/ClientsList";
 import SearchBar from "../components/search-bar/SearchBar";
 import AddClientForm from "../components/clients-info/add-client-form/AddClientForm";
 
-import { Box, Typography, Button, Divider } from "@mui/material";
+import { Box, Button, Divider } from "@mui/material";
 
 const ClientsInfo = () => {
   const [open, setOpen] = useState(false);
@@ -23,19 +23,19 @@ const ClientsInfo = () => {
   };
   return (
     <Box>
-      <Typography gutterBottom variant="h2" component="div">
-        Список клиентов
-      </Typography>
+      <br />
       <SearchBar onSearch={handleSearch} />
       <br />
-      <Button
-        onClick={() => {
-          setOpen(true);
-        }}
-        variant="contained"
-      >
-        Добавить
-      </Button>
+      <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+        <Button
+          onClick={() => {
+            setOpen(true);
+          }}
+          variant="contained"
+        >
+          Добавить
+        </Button>
+      </Box>
       <Divider sx={{ margin: "20px 0" }} />
       <ClientsList />
 
