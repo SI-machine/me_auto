@@ -6,31 +6,22 @@ import NotFound from "./pages/NotFound";
 import ClientsInfo from "./pages/ClientsInfo";
 import { BookRoutes } from "./routes/BookRoutes";
 import Navigation from "./components/navigation/Navigation";
+import AskAi from "./pages/AskAI";
 
 const App: React.FC = () => {
   return (
-    <>
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/">Главная</Link>
-          </li>
-          <li>
-            <Link to="/videos">Список клиентов</Link>
-          </li>
-          <li>
-            <Link to="/books">Books</Link>
-          </li>
-        </ul>
-      </nav> */}
+    <div className="App">
       <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/videos" element={<ClientsInfo />} />
-        <Route path="/books/*" element={<BookRoutes />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/videos" element={<ClientsInfo />} />
+          <Route path="/books/*" element={<BookRoutes />} />
+          <Route path="/ask-ai" element={<AskAi />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </div>
   );
 };
 

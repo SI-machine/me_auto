@@ -25,6 +25,7 @@ const Navigation = () => {
     { text: "Главная", path: "/" },
     { text: "Список клиентов", path: "/videos" },
     { text: "Books", path: "/books" },
+    { text: "Ask AI", path: "/ask-ai" },
   ];
 
   const handleDrawerToggle = () => {
@@ -49,7 +50,7 @@ const Navigation = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           {isMobile && (
             <IconButton
