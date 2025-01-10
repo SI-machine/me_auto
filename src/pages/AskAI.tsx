@@ -4,13 +4,15 @@ import { getAnswer } from "../services/langchain-service";
 
 const AskAi: React.FC = () => {
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  //const langchainService = new LangchainService();
+  //const [answer, setAnswer] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await getAnswer(question);
-    setAnswer(response);
+    //const response = await getAnswer();
+    // if (typeof response === "string") {
+    //   setAnswer(response);
+    // }
+    getAnswer();
   };
 
   return (
@@ -30,7 +32,7 @@ const AskAi: React.FC = () => {
           Спросить
         </Button>
       </form>
-      {answer && <Typography sx={{ mt: 2 }}>{answer}</Typography>}
+      {/* {answer && <Typography sx={{ mt: 2 }}>{answer}</Typography>} */}
     </Paper>
   );
 };
