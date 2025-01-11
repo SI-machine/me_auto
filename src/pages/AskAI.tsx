@@ -28,7 +28,7 @@ const AskAi: React.FC = () => {
           label="Ваш вопрос"
           margin="normal"
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button disabled type="submit" variant="contained" color="primary">
           Спросить
         </Button>
       </form>

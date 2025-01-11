@@ -14,13 +14,28 @@ import {
 
 const hfApiKey = import.meta.env.VITE_HUGGINGFACEHUB_API_TOKEN;
 
+// async function query(data) {
+//   const response = await fetch(
+//     "https://api-inference.huggingface.co/models/google/flan-t5-base",
+//     {
+//       headers: {
+//         Authorization: `Bearer ${hfApiKey}`,
+//         "Content-Type": "application/json",
+//       },
+//       method: "POST",
+//       body: JSON.stringify(data),
+//     }
+//   );
+//   const result = await response.json();
+//   return result;
+// }
+
 const model = new HuggingFaceInference({
   model: "google/flan-t5-base",
   apiKey: hfApiKey,
-  maxTokens: 1500,
-  temperature: 0.7,
+  maxTokens: 250,
+  temperature: 0.3,
 });
-
 // const openAIApiKey = import.meta.env.VITE_OPENAI_API_KEY;
 // const model = new ChatOpenAI({ openAIApiKey });
 
