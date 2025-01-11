@@ -1,0 +1,9 @@
+.carouselContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carouselImage {
+  height: 200px;
+  object-fit: fill;
+}

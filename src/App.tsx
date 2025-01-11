@@ -1,34 +1,27 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import VideoReviews from "./pages/VideoReviews";
+import ClientsInfo from "./pages/ClientsInfo";
 import { BookRoutes } from "./routes/BookRoutes";
+import Navigation from "./components/navigation/Navigation";
+import AskAi from "./pages/AskAI";
 
 const App: React.FC = () => {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Главная</Link>
-          </li>
-          <li>
-            <Link to="/videos">Видео-Обзоры</Link>
-          </li>
-          <li>
-            <Link to="/books">Books</Link>
-          </li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/videos" element={<VideoReviews />} />
-        <Route path="/books/*" element={<BookRoutes />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+    <div className="App">
+      <Navigation />
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/videos" element={<ClientsInfo />} />
+          <Route path="/books/*" element={<BookRoutes />} />
+          <Route path="/ask-ai" element={<AskAi />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </div>
   );
 };
 
