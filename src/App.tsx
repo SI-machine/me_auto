@@ -15,7 +15,7 @@ const App: React.FC = () => {
       <main style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/videos" element={<ClientsInfo />} />
+          <Route path="/clients" element={<ClientsInfo />} />
           <Route path="/books/*" element={<BookRoutes />} />
           <Route path="/ask-ai" element={<AskAi />} />
           <Route path="*" element={<NotFound />} />
