@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store/store";
+import { fetchClients } from "../store/features/clientsSlice";
 
 import ClientsList from "../components/clients-info/clients-list/ClientsList";
 import SearchBar from "../components/search-bar/SearchBar";
@@ -8,10 +11,26 @@ import { Box, Button, Divider } from "@mui/material";
 
 const ClientsInfo = () => {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
+  const { clients, loading, error } = useSelector(
+    (state: RootState) => state.clients
+  );
 
   useEffect(() => {
     document.title = "Список клиентов";
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchClients());
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   const handleSearch = (searchTerm: string) => {
     // Handle search logic here
@@ -37,7 +56,7 @@ const ClientsInfo = () => {
         </Button>
       </Box>
       <Divider sx={{ margin: "20px 0" }} />
-      <ClientsList />
+      <ClientsList clients={clients} />
 
       {/* modal components */}
       <AddClientForm open={open} setOpen={setOpen} />
