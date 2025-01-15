@@ -1,36 +1,36 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { fetchClients } from "../store/features/clientsSlice";
+import { fetchOrders } from "../store/features/ordersSlice";
 
-import ClientsList from "../components/clients-info/clients-list/ClientsList";
+import OrdersList from "../components/clients-info/orders-list/OrdersList";
 import SearchBar from "../components/search-bar/SearchBar";
-import AddClientForm from "../components/clients-info/add-client-form/AddClientForm";
+import AddOrderForm from "../components/clients-info/add-order-form/AddOrderForm";
 
 import { Box, Button, Divider } from "@mui/material";
 
 const ClientsInfo = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
-  const { clients, loading, error } = useSelector(
+  const { orders, loading, error } = useSelector(
     (state: RootState) => state.clients
   );
 
   useEffect(() => {
-    document.title = "Список клиентов";
+    document.title = "Клиенты";
   }, []);
 
   useEffect(() => {
-    dispatch(fetchClients());
+    dispatch(fetchOrders());
   }, [dispatch]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   const handleSearch = (searchTerm: string) => {
     // Handle search logic here
@@ -56,10 +56,10 @@ const ClientsInfo = () => {
         </Button>
       </Box>
       <Divider sx={{ margin: "20px 0" }} />
-      <ClientsList clients={clients} />
+      <OrdersList orders={orders} loading={loading} error={error} />
 
       {/* modal components */}
-      <AddClientForm open={open} setOpen={setOpen} />
+      <AddOrderForm open={open} setOpen={setOpen} />
     </Box>
   );
 };

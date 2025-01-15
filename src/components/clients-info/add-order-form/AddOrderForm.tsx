@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-const AddClientForm: React.FC<{
+const AddOrderForm: React.FC<{
   open: boolean;
   setOpen: (open: boolean) => void;
 }> = ({ open, setOpen }) => {
@@ -22,7 +22,7 @@ const AddClientForm: React.FC<{
     description: string;
     servicePrice: number;
   }) => {
-    const response = await fetch("http://localhost:3001/clients", {
+    const response = await fetch("http://localhost:3001/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +49,8 @@ const AddClientForm: React.FC<{
               carName: String(formJson.carName || ""),
               description: String(formJson.description || ""),
               servicePrice: Number(formJson.servicePrice || 0),
+              status: String(formJson.status || ""),
+              employeesName: String(formJson.employeesName || ""),
             };
             createClient(clientData);
             handleClose();
@@ -113,6 +115,28 @@ const AddClientForm: React.FC<{
             fullWidth
             variant="standard"
           />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="status"
+            name="status"
+            label="Статус заказа"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="employeesName"
+            name="employeesName"
+            label="Имя работника"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={handleClose}>
@@ -127,4 +151,4 @@ const AddClientForm: React.FC<{
   );
 };
 
-export default AddClientForm;
+export default AddOrderForm;

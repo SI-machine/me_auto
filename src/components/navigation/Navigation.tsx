@@ -23,7 +23,7 @@ const Navigation = () => {
 
   const menuItems = [
     { text: "Главная", path: "/" },
-    { text: "Список клиентов", path: "/clients" },
+    { text: "Клиенты", path: "/clients" },
     { text: "Books", path: "/books" },
     { text: "Ask AI", path: "/ask-ai" },
   ];
